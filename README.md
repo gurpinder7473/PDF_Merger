@@ -59,23 +59,20 @@ The merged PDF will be saved with the name specified in `output_pdf`.
 
 ## 🧠 Script Overview
 
-### `merge_pdfs` Function
+merge_pdfs Function
+This function takes two arguments:
 
-```python
-def merge_pdfs(input_pdfs, output_pdf):
-    writer = PdfWriter()
-    for file in input_pdfs:
-        reader = PdfReader(file)
-        for page in reader.pages:
-            writer.add_page(page)
-    with open(output_pdf, "wb") as f:
-        writer.write(f)
-```
+input_pdfs: A list of paths to the input PDF files to be merged.
+output_pdf: The path where the merged PDF file will be saved.
+The function performs the following steps:
 
-- **`input_pdfs`**: List of PDF files to be merged.
-- **`output_pdf`**: Output file name for the merged PDF.
-
----
+Creates a PdfWriter object.
+Iterates over each input PDF file:
+Opens the PDF file.
+Reads the PDF file using PdfReader.
+Adds each page of the PDF to the PdfWriter object.
+Closes the PDF file.
+Writes the combined pages to the output PDF file.
 
 ## 📄 Example
 
